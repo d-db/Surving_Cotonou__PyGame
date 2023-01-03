@@ -1,29 +1,18 @@
-# SPICED_Final_Project_Live_Sign_Language_Translator
+# Surviving Cotonou - A PyGame Project
 
 ## Project Summary
 
-main.py performs a live translation of the German sign language and displays the translated word directly in the window. In the assumed use case, an appointment should be made possible between a deaf and a hearing person. The LSTM neural network is trained to identify 16 different signs of the German sign language. If the user executes the German sign for "stop", a 'speech-to-text' translator will be started. If the user executes the german sign for "end", the programm will end.
+This project is my interpretation of the "Alien Invasion" challenge (chapters 12 - 14) of the book "Python Crash Course" by Eric Matthes, which I named "Surviving Cotonou". It is a tribute to #Cotonou (the economic centre of #Benin), where we had the pleasure of living for three months in spring 2022, and its unsung heroes - the countless #Zem (motorbike) riders.
 
-The project has been realised within two weeks and all training data has been solely produced by the author of this project.
+I found the following steps particularly challenging:
+
+- Generating the motorbikes at random positions without overlapping.
+- Time-limited display of the buttons in case of a crash or reaching a next round
+- Continuous increase of the number of motorbikes and their speed
 
 ## Demonstration Video
 
-https://user-images.githubusercontent.com/61935581/209193653-3dc91bb2-fecc-4960-8581-1e963a9e5aaf.mp4
-
-The English translation of the video content and more details:
-
-- Part 1 (in sign language): "Good morning, I need an appointment."
-(This is followed by the German sign for "Stop", which automatically starts a speech-to-text GUI).
-
-- Part 2 (speech-to-text): "Hello, we have something free on Tuesday at 4pm. If that suits you, please tell me your name. Thank you very much."
-(At this point I have shortened the video by about 7 seconds to speed up the process in the video a bit).
-
-- Part 3 (in sign language): "Thank you my name is Daniel"
-(Then follows the German sign for "end", which ends the whole application)
-
-## Acknowledgement
-
-Many thanks to Nicholas Renotte and [his amazing video about 'action recognition' with Googles MediaPipe library](https://www.youtube.com/watch?v=doDUihpj6ro). Without this important inspiration, the project would not have been possible in this form.
+https://user-images.githubusercontent.com/61935581/210384867-143ab6a3-37b6-4177-af0c-a6f8eda78d84.mp4
 
 ## Installation
 
@@ -39,37 +28,16 @@ Afterwards install the libraries specified in requirements.txt
 ```bash
 pip install -r requirements.txt
 ```
-## Usage
 
-The project contains three major files:
-
-### 1. capture.py
-
-The script is used to record new signs. In the standard settings, you go through 200 iterations with 30 frames each (about 1.5 seconds). The gesture is therefore recorded by the user 200 times. The script automatically creates a structure with 200 folders in which the resulting NumPy arrays are stored.
-
-At the beginning after calling the script, a video of the gesture is recorded once so that the user knows later exactly which gesture it was. The video is stored in the same folder structure like the NumPy arrays.
-
-In order to call up the script correctly via the command line, the must also specify the following information:
-
-1. the name of the gesture
-2. the location where the folder structure is to be created
-
-Example command for a recording of the gesture "Morning" stored in the folder "data".
+Run the main project file surviving_cotonou.py
 
 ```bash
-python3 capture.py Morgen ./data/
+python3 surviving_cotonou.py
 ```
-Sample video of two iterations recording the German sign "Morning" through capture.py:
 
-https://user-images.githubusercontent.com/61935581/209201751-f65e546a-52ee-4ac3-95dd-285ae002ce4f.mp4
+## Usage
 
-### 2. train_model.ipynb
-
-With this Jupyter notebook the LSTM neural network can be trained and validated.
-
-### 3. main.ipynb
-
-This script combines all relevant functions, loads the LSTM neural network and executes the sign language translation as well as the 'speech-to-text' translation like seen in the introductory video above.
+Use the up, down, left and right arrows to control the person. Try to get as fast as possible to the right side of the screen without hitting a Zem driver. There are three levels in total.
 
 ## Contributing
 
